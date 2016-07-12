@@ -5,19 +5,21 @@ namespace ConsoleApplication
 {
     public class CallbackNoIf
     {
-        public void getResponse(int id, 
+        public void getResponse(string id, 
                                 Action<CallbackReponse> empty,
                                 Action<CallbackReponse> filled) 
         {
-            if (id < 0) {
-                empty(new CallbackReponse());
-                return;
-            }
-
-            filled(new CallbackReponse
+            try
             {
-                message = string.Format("Your id is {0}", id)
-            });
+                filled(new CallbackReponse
+                {
+                    message = string.Format("Your id is {0}", Convert.ToInt32(id))
+                });
+            }
+            catch (Exception)
+            {
+                empty(new CallbackReponse());
+            }
         }
     }
 }

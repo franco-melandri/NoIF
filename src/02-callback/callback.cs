@@ -9,15 +9,19 @@ namespace ConsoleApplication
 
     public class Callback
     {
-        public CallbackReponse getResponse(int id) 
+        public CallbackReponse getResponse(string id) 
         {
-            if (id < 0)
-                return null;
-
-            return new CallbackReponse
+            try
             {
-                message = string.Format("Your id is {0}", id)
-            };
+                return new CallbackReponse
+                {
+                    message = string.Format("Your id is {0}", Convert.ToInt32(id))
+                };
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
