@@ -1,12 +1,7 @@
 using System;
 
-namespace ConsoleApplication
+namespace OnlyOne
 {
-    public class Instance
-    {
-        public string message {get; set;}    
-    }
-
     public class OnlyOne
     {
         private Instance instance {get; set;}
