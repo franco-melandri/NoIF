@@ -1,7 +1,7 @@
 
 using System;
 
-namespace ConsoleApplication
+namespace Callback
 {
     public class CallbackNoIf
     {
