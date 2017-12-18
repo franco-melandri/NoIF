@@ -28,6 +28,23 @@ namespace Tests
             Assert.AreNotEqual(response, null);
             Assert.AreEqual(response.message, "Your id is 123");
         }
+
+        [Test]
+        public void AsMain() {
+            var response = sut.getResponse("1212");
+            if (response != null)
+                System.Console.WriteLine (response.message);
+            else
+                System.Console.WriteLine ("No Id !!!!");
+
+            response = sut.getResponse("ASC");
+            if (response != null)
+                System.Console.WriteLine (response.message);
+            else
+                System.Console.WriteLine ("No Id !!!!");
+
+            Assert.IsTrue(true);
+        }
     }
 
     public class CallbackNoIfTests
@@ -43,7 +60,7 @@ namespace Tests
         [Test]
         public void ShouldgetWrongReponse()
         {
-            const string id = "ivalidId";
+            const string id = "invalidId";
             sut.getResponse(id, 
                             (response) => Assert.IsTrue(true),
                             (response) => Assert.Fail()) ;
@@ -56,6 +73,17 @@ namespace Tests
             sut.getResponse(id, 
                             (response) => Assert.Fail(),
                             (response) => Assert.IsTrue(true)) ;
+        }
+
+        [Test]
+        public void AsMain() {
+            sut.getResponse("invalidId",
+                            (res) => System.Console.WriteLine ("No Id !!!!"),
+                            (res) => System.Console.WriteLine (res.message));
+            sut.getResponse("123",
+                            (res) => System.Console.WriteLine ("No Id !!!!"),
+                            (res) => System.Console.WriteLine (res.message));
+            Assert.IsTrue(true);
         }
     }
 }
