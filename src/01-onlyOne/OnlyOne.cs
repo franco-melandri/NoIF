@@ -4,15 +4,13 @@ namespace OnlyOne
 {
     public class OnlyOne
     {
-        private Instance instance {get; set;}
+        private Instance instance;
 
         public Instance getInstance (string msg)
         {
-            if (instance == null)
-                instance = new Instance {
-                        message = msg
-                };
-            return instance;
+            if (this.instance == null)
+                this.instance = new Instance(msg);
+            return this.instance;
         }
     }
 }

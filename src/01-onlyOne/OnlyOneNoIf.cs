@@ -6,7 +6,7 @@ namespace OnlyOne
     public class OnlyOneNoIf
     {
         Func<string, Instance> action;
-        private Instance instance { get; set;}
+        private Instance instance;
 
         public OnlyOneNoIf() 
         {
@@ -15,16 +15,14 @@ namespace OnlyOne
 
         private Instance createAndGet (string msg)
         {
-            instance = new Instance {
-                        message = msg
-                };
-            action = onlydGet;
-            return instance;            
+            this.instance = new Instance(msg);
+            action = onlyGet;
+            return this.instance;            
         }
         
-        private Instance onlydGet (string msg)
+        private Instance onlyGet (string msg)
         {
-            return instance;            
+            return this.instance;            
         }
 
         public Instance getInstance (string msg)
