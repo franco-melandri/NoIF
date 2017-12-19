@@ -1,26 +1,23 @@
 using System;
 
-namespace Callback
+namespace CouldBeNull
 {
-    public class CallbackReponse
-    {
-        public string message {get; set;}
-    }
-
     public class Callback
     {
-        public CallbackReponse getResponse(string id) 
+        public void getResponse(string id, 
+                                Action<Reponse> empty,
+                                Action<Reponse> filled) 
         {
             try
             {
-                return new CallbackReponse
+                filled(new Reponse
                 {
                     message = string.Format("Your id is {0}", Convert.ToInt32(id))
-                };
+                });
             }
             catch (Exception)
             {
-                return null;
+                empty(new Reponse());
             }
         }
     }

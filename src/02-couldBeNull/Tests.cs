@@ -2,14 +2,14 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    public class CallbackTests
+    public class CouldBeNullTests
     {
-        private Callback.Callback sut;
+        private CouldBeNull.CouldBeNull sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new Callback.Callback();
+            sut = new CouldBeNull.CouldBeNull();
         }
 
         [Test]
@@ -47,14 +47,16 @@ namespace Tests
         }
     }
 
+
+
     public class CallbackNoIfTests
     {
-        private Callback.CallbackNoIf sut;
+        private CouldBeNull.Callback sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new Callback.CallbackNoIf();
+            sut = new CouldBeNull.Callback();
         }
 
         [Test]
