@@ -2,10 +2,9 @@ using System;
 
 namespace OnlyOne
 {
-
     public class OnlyOneNoIf
     {
-        Func<string, Instance> action;
+        Func<string, Instance> action;        
         private Instance instance;
 
         public OnlyOneNoIf() 
@@ -17,12 +16,12 @@ namespace OnlyOne
         {
             this.instance = new Instance(msg);
             action = onlyGet;
-            return this.instance;            
+            return this.instance;
         }
         
         private Instance onlyGet (string msg)
         {
-            return this.instance;            
+            return this.instance;
         }
 
         public Instance getInstance (string msg)
