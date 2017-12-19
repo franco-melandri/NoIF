@@ -30,7 +30,8 @@ namespace Tests
         }
 
         [Test]
-        public void AsMain() {
+        public void AsMain() 
+        {
             var response = sut.getResponse("1212");
             if (response != null)
                 System.Console.WriteLine (response.message);
@@ -64,8 +65,8 @@ namespace Tests
         {
             const string id = "invalidId";
             sut.getResponse(id, 
-                            (response) => Assert.IsTrue(true),
-                            (response) => Assert.Fail()) ;
+                            (response) => Assert.Fail(),
+                            (response) => Assert.IsTrue(true)) ;
         }
     
         [Test]
@@ -73,18 +74,21 @@ namespace Tests
         {
             const string id = "123";
             sut.getResponse(id, 
-                            (response) => Assert.Fail(),
-                            (response) => Assert.IsTrue(true)) ;
+                            (response) => Assert.IsTrue(true),
+                            (response) => Assert.Fail()) ;
         }
 
         [Test]
         public void AsMain() {
+
             sut.getResponse("invalidId",
-                            (res) => System.Console.WriteLine ("No Id !!!!"),
-                            (res) => System.Console.WriteLine (res.message));
+                            (res) => System.Console.WriteLine (res.message),
+                            (res) => System.Console.WriteLine ("No Id !!!!"));
+                            
             sut.getResponse("123",
-                            (res) => System.Console.WriteLine ("No Id !!!!"),
-                            (res) => System.Console.WriteLine (res.message));
+                            (res) => System.Console.WriteLine (res.message),
+                            (res) => System.Console.WriteLine ("No Id !!!!"));
+
             Assert.IsTrue(true);
         }
     }
