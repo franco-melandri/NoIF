@@ -5,19 +5,19 @@ namespace CouldBeNull
     public class Callback
     {
         public void getResponse(string id, 
-                                Action<Reponse> some,
-                                Action<Reponse> none) 
+                                Action<Response> some,
+                                Action<Response> none) 
         {
             try
             {
-                some(new Reponse
+                some(new Response
                 {
                     message = string.Format("Your id is {0}", Convert.ToInt32(id))
                 });
             }
             catch (Exception)
             {
-                none(new Reponse());
+                none(new Response());
             }
         }
     }

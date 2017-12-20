@@ -2,7 +2,7 @@ using System;
 
 namespace CouldBeNull
 {
-    public class Reponse
+    public class Response
     {
         public string message {get; set;}
     }

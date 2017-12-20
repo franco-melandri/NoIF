@@ -48,8 +48,6 @@ namespace Tests
         }
     }
 
-
-
     public class CallbackNoIfTests
     {
         private CouldBeNull.Callback sut;
@@ -88,6 +86,61 @@ namespace Tests
             sut.getResponse("123",
                             (res) => System.Console.WriteLine (res.message),
                             (res) => System.Console.WriteLine ("No Id !!!!"));
+
+            Assert.IsTrue(true);
+        }
+    }
+
+    public class MaybeNoIfTests
+    {
+        private CouldBeNull.Maybe sut;
+
+        [SetUp]
+        public void Setup()
+        {
+            sut = new CouldBeNull.Maybe();
+        }
+
+        [Test]
+        public void ShouldgetWrongReponse()
+        {
+            const string id = "invalidId";
+            Assert.IsTrue (sut.getResponse(id)
+                            .Match<bool>((response) => false,
+                                         () => true)) ;
+        }
+    
+        [Test]
+        public void ShouldgetRightReponse()
+        {
+            const string id = "123";
+            Assert.IsTrue (sut.getResponse(id)
+                            .Match<bool>((response) => true,
+                                         () => false)) ;
+        }
+
+        [Test]
+        public void AsMain() {
+
+            sut.getResponse("invalidId")
+                .Match<bool>((res) => {
+                                System.Console.WriteLine (res.message);
+                                return true;
+                             },               
+                             () => {
+                                 System.Console.WriteLine ("No Id !!!!");
+                                 return false;
+                             });
+                            
+            sut.getResponse("123")
+                .Match<bool>((res) => {
+                                System.Console.WriteLine (res.message);
+                                return true;
+                             },               
+                             () => {
+                                 System.Console.WriteLine ("No Id !!!!");
+                                 return false;
+                             });
 
             Assert.IsTrue(true);
         }
