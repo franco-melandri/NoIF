@@ -26,6 +26,6 @@ namespace Polymorphism
             foreach (var shape in shapes)
                 shape.accept(visitor);
             return visitor.Area;
-        }                
-    }
+        }
+    }    
 }
