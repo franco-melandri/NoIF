@@ -6,27 +6,28 @@ namespace OnlyOne
     {
         Func<string, Instance> action;        
         private Instance instance;
+        
+        private object lckObj;
 
-        public OnlyOneNoIf() 
-        {
+        public OnlyOneNoIf()  {
+            lckObj = new object();
             action = createAndGet;
         }
 
-        private Instance createAndGet (string msg)
-        {
+        private Instance createAndGet (string msg) {
             this.instance = new Instance(msg);
             action = onlyGet;
             return this.instance;
         }
         
-        private Instance onlyGet (string msg)
-        {
+        private Instance onlyGet (string msg) {
             return this.instance;
         }
 
-        public Instance getInstance (string msg)
-        {
-            return action(msg);
+        public Instance getInstance (string msg) {
+            lock (lckObj) {
+                return action(msg);
+            }
         }
     }
 }
