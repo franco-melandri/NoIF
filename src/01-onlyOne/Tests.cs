@@ -22,12 +22,12 @@ namespace Tests
         public void ShouldGetTheSameMessage()
         {
             var inst = sut.getInstance(OnlyOneConstants.MESSAGE);
-            sut.getInstance(OnlyOneConstants.SECOND_MESSAGE);
+            inst = sut.getInstance(OnlyOneConstants.SECOND_MESSAGE);
             Assert.AreEqual(OnlyOneConstants.MESSAGE, inst.message);
         }
     }
 
-    public class OnlyOnenoIfUnitTests
+    public class OnlyOneNoIfUnitTests
     {    
         private OnlyOne.OnlyOneNoIf sut;
 
@@ -41,7 +41,7 @@ namespace Tests
         public void ShouldGetTheSameMessage()
         {
             var inst = sut.getInstance(OnlyOneConstants.MESSAGE);
-            sut.getInstance(OnlyOneConstants.SECOND_MESSAGE);
+            inst = sut.getInstance(OnlyOneConstants.SECOND_MESSAGE);
             Assert.AreEqual(OnlyOneConstants.MESSAGE, inst.message);
         }
     }
