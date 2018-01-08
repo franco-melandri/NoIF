@@ -2,12 +2,14 @@ using System;
 
 namespace OnlyOne
 {
-    public class OnlyOneNoIf
+    public class OnlyOneNoIfSynch
     {
         Func<string, Instance> action;        
         private Instance instance;
+        private object lckObj;
 
-        public OnlyOneNoIf()  {
+        public OnlyOneNoIfSynch()  {
+            lckObj = new object();
             action = createAndGet;
         }
 
@@ -22,7 +24,9 @@ namespace OnlyOne
         }
 
         public Instance getInstance (string msg) {
-            return action(msg);
+            lock (lckObj) {
+                return action(msg);
+            }
         }
     }
 }
