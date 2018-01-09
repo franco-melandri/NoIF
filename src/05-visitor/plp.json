@@ -1,0 +1,98 @@
+{
+    "facets": [
+        {
+            "label": "Brand",
+            "identifier": "Brand",
+            "entry": [
+                {
+                    "count": 1,
+                    "value": "ads_f10001_ntk_cs%3A%22TOPSHOP+UNIQUE%22",
+                    "label": "TOPSHOP UNIQUE"
+                },
+                {
+                    "count": 1,
+                    "value": "ads_f10001_ntk_cs%3A%22VICTORIA+BECKHAM%22",
+                    "label": "VICTORIA BECKHAM"
+                }
+            ]
+        },
+        {
+            "label": "Brand Colour",
+            "identifier": "Brand Colour",
+            "entry": [
+               {
+                    "count": 1,
+                    "value": "ads_f12001_ntk_cs%3A%22Teal%22",
+                    "label": "Teal",
+                    "swatch": {
+                        "HEX": "367588"
+                    }
+                },
+                {
+                    "count": 1,
+                    "value": "ads_f12001_ntk_cs%3A%22Tomato+red%22",
+                    "label": "Tomato red",
+                    "swatch": {
+                        "HEX": "E22021"
+                    }
+                }
+            ]
+        },
+        {
+            "schemaIdentifier": "SIZE.SCHEMA.PUBLIC.TON.APPAREL-WMN.GLO",
+            "schemaLabel": "GLO",
+            "label": "Clothing Size",
+            "identifier": "SIZE_SCHEME_CLOTHING SIZE",
+            "entry": [
+                {
+                    "count": 6,
+                    "value": "ads_f13016_ntk_cs%3A%228%22",
+                    "label": "8"
+                },
+                {
+                    "count": 1,
+                    "value": "ads_f13016_ntk_cs%3A%229%22",
+                    "label": "9"
+                }
+            ]
+        },
+        {
+            "label": "categories",
+            "identifier": "CATEGORIES",
+            "entry": [
+                {
+                    "numberOfVisibleProducts": 48,
+                    "count": 48,
+                    "categoryId": "3074457345616677268",
+                    "label": "Accessories",
+                    "seo": {
+                        "seoURLKeyword": "/just-in/accessories"
+                    },
+                    "identifier": "INTL_Accessories",
+                    "children": [
+                        {
+                            "numberOfVisibleProducts": 16,
+                            "count": 16,
+                            "categoryId": "3074457345616678078",
+                            "label": "Earrings",
+                            "seo": {
+                                "seoURLKeyword": "/just-in/accessories/jewelry/earrings"
+                            },
+                            "identifier": "INTL_Earrings_JEWELRY_ACCESSORIES"
+                        },
+                        {
+                            "numberOfVisibleProducts": 2,
+                            "count": 2,
+                            "categoryId": "3074457345616678077",
+                            "label": "Bracelets",
+                            "seo": {
+                                "seoURLKeyword": "/just-in/accessories/jewelry/bracelets"
+                            },
+                            "identifier": "INTL_Bracelets_JEWELRY_ACCESSORIES"                    
+                        }                        
+                    ]
+                }
+            ]
+        }
+    ]
+}
