@@ -1,10 +1,8 @@
 namespace Visitor {
 
-    public enum Facets {
-        Brand,
-        Colour,
-        Schema,
-        Category
+    public static class Facets {
+        public const string Brand = "Brand";
+        public const string Schema = "Schema";
     }
 
     public class BaseFacet {
@@ -14,13 +12,7 @@ namespace Visitor {
 
     public class BrandFacet : BaseFacet {
         public BrandFacet () {
-            this.identifier = Facets.Brand.ToString();
-        }
-    }
-
-    public class ColourFacet : BaseFacet {
-        public ColourFacet () {
-            this.identifier = Facets.Colour.ToString();
+            this.identifier = Facets.Brand;
         }
     }
 
@@ -28,13 +20,7 @@ namespace Visitor {
         public string schemaLabel { get; set; }
         public string schemaIdentifier { get; set; }
         public SchemaFacet () {
-            this.identifier = Facets.Schema.ToString();
-        }
-    }
-
-    public class CategoryFacet : BaseFacet {
-        public CategoryFacet () {
-            this.identifier = Facets.Category.ToString();
+            this.identifier = Facets.Schema;
         }
     }
 }

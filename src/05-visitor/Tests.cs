@@ -17,16 +17,6 @@ namespace Tests {
         }
     
         [Test]
-        public void ShouldFillCoulourFacet() 
-        {
-            var sut = new ColourFacet{
-                label = "colourLabel"
-            };
-            Assert.AreEqual(sut.identifier, "Colour");
-            Assert.AreEqual(sut.label, "colourLabel");
-        }
-
-        [Test]
         public void ShouldFillSchemaFacet() 
         {
             var sut = new SchemaFacet{
@@ -39,15 +29,31 @@ namespace Tests {
             Assert.AreEqual(sut.schemaLabel, "schemaLabel");
             Assert.AreEqual(sut.schemaIdentifier, "schemaIdentifier");
         }
+    }
 
+    [TestFixture]
+    public class RenderFacetTests
+    {    
         [Test]
-        public void ShouldFillCategoryFacet() 
+        public void ShouldRenderBrand() 
         {
-            var sut = new CategoryFacet{
+            var facet = new BrandFacet{
                 label = "label",
             };
-            Assert.AreEqual(sut.identifier, "Category");
-            Assert.AreEqual(sut.label, "label");
+            var sut = new RenderFacet();
+            Assert.AreEqual(sut.Render(facet), "BRAND: label");
         }
-    }    
+
+        [Test]
+        public void ShouldSchemaBrand() 
+        {
+            var facet = new SchemaFacet{
+                label = "label",
+                schemaLabel = "schemaLabel",
+                schemaIdentifier = "schemaIdentifier"
+            };
+            var sut = new RenderFacet();
+            Assert.AreEqual(sut.Render(facet), "SCHEMA: label, schemaLabel, schemaIdentifier");
+        }
+    }
 }
