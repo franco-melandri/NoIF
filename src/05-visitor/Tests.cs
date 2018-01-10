@@ -45,7 +45,7 @@ namespace Tests {
         }
 
         [Test]
-        public void ShouldSchemaBrand() 
+        public void ShouldRenderSchema() 
         {
             var facet = new SchemaFacet{
                 label = "label",
@@ -53,6 +53,32 @@ namespace Tests {
                 schemaIdentifier = "schemaIdentifier"
             };
             var sut = new RenderFacet();
+            Assert.AreEqual(sut.Render(facet), "SCHEMA: label, schemaLabel, schemaIdentifier");
+        }
+    }
+
+    [TestFixture]
+    public class RenderFacetVisitorTests
+    {    
+        [Test]
+        public void ShouldRenderBrand() 
+        {
+            var facet = new BrandFacetVisitor{
+                label = "label",
+            };
+            var sut = new RenderFacetVisitor();
+            Assert.AreEqual(sut.Render(facet), "BRAND: label");
+        }
+
+        [Test]
+        public void ShouldRenderSchema() 
+        {
+            var facet = new SchemaFacetVisitor{
+                label = "label",
+                schemaLabel = "schemaLabel",
+                schemaIdentifier = "schemaIdentifier"
+            };
+            var sut = new RenderFacetVisitor();
             Assert.AreEqual(sut.Render(facet), "SCHEMA: label, schemaLabel, schemaIdentifier");
         }
     }
