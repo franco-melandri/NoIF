@@ -1,5 +1,6 @@
 namespace Visitor {
     public class RenderFacet {
+        
         public string Render(BaseFacet facet) {
             switch (facet.identifier) {
                 case Facets.Brand:
