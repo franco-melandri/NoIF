@@ -1,20 +1,26 @@
 namespace Visitor {
 
     public interface IVisitor {
-        string acceptBrand(BrandFacet facet);
-        string acceptSchema(SchemaFacet facet);
+        string accept(BrandFacet facet);
+        string accept(SchemaFacet facet);
     }
 
-    public class RenderFacetVisitor : IVisitor {
-        public string Render(IBaseFacetElement facet) {
-            return facet.visit(this);
+    public class RenderFacetVisitor {
+
+        public string Render(IElement facet) {
+            var visitor = new FacetVisitor();
+            return facet.visit(visitor);
         }
 
-        public string acceptBrand(BrandFacet facet) {
+    }
+
+    public class FacetVisitor : IVisitor {
+    
+        public string accept(BrandFacet facet) {
             return string.Format ("BRAND: {0}", facet.label);
         }
 
-        public string acceptSchema(SchemaFacet facet) {
+        public string accept(SchemaFacet facet) {
             return string.Format ("SCHEMA: {0}, {1}, {2}", 
                                   facet.label,
                                   facet.schemaLabel,
