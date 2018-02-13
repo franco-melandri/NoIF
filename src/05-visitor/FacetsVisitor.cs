@@ -1,20 +1,20 @@
 namespace Visitor {
 
     public interface IElement {
-        string visit(IVisitor visitor);
+        string accept(IVisitor visitor);
     }
 
     public class BrandFacetVisitor : BrandFacet,
                                      IElement {
-        public string visit(IVisitor visitor) {
-            return visitor.accept(this);
+        public string accept(IVisitor visitor) {
+            return visitor.visit(this);
         }
     }
 
     public class SchemaFacetVisitor : SchemaFacet,
                                       IElement {
-        public string visit(IVisitor visitor) {
-            return visitor.accept(this);
+        public string accept(IVisitor visitor) {
+            return visitor.visit(this);
         }
     }
 }
