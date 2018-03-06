@@ -63,7 +63,7 @@ namespace Tests {
         [Test]
         public void ShouldRenderBrand() 
         {
-            var facet = new BrandFacetVisitor{
+            var facet = new BrandFacetElement {
                 label = "label",
             };
             var sut = new RenderFacetVisitor();
@@ -73,7 +73,7 @@ namespace Tests {
         [Test]
         public void ShouldRenderSchema() 
         {
-            var facet = new SchemaFacetVisitor{
+            var facet = new SchemaFacetElement {
                 label = "label",
                 schemaLabel = "schemaLabel",
                 schemaIdentifier = "schemaIdentifier"
