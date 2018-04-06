@@ -15,7 +15,8 @@ namespace FizzBuzz {
                             .Where(_ => _.Key(value) == true)
                             .Select(_ => _.Value())
                             .ToArray();
-            return result.Length == 0 ? value.ToString() : string.Join("", result);
+            return result.Length == 0 ? value.ToString() :
+                                        string.Join("", result);
         }
     }
 }
