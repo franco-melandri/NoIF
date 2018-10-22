@@ -4,7 +4,7 @@ enum Facets {
 }
 
 protocol IElement {
-    func accept(visitor: IVisitor) -> String
+    func accept(_ visitor: IVisitor) -> String
 }
 
 protocol BaseFacet {
@@ -12,7 +12,8 @@ protocol BaseFacet {
     var identifier: String { get }
 }
 
-struct BrandFacet: BaseFacet {
+struct BrandFacet: BaseFacet,
+                   IElement {
     let label: String
     let identifier: String
     let name: String
@@ -23,9 +24,14 @@ struct BrandFacet: BaseFacet {
         self.label = label
         self.name = name
     }
+
+    func accept(_ visitor: IVisitor) -> String {
+        return visitor.visit(self)
+    }
 }
 
-struct SchemaFacet: BaseFacet {
+struct SchemaFacet: BaseFacet,
+                    IElement {
     let label: String
     let identifier: String
     let schemaLabel: String
@@ -38,5 +44,9 @@ struct SchemaFacet: BaseFacet {
         self.label = label
         self.schemaLabel = schemaLabel
         self.schemaIdentifier = schemaIdentifier
+    }
+
+    func accept(_ visitor: IVisitor) -> String {
+        return visitor.visit(self)
     }
 }

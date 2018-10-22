@@ -3,7 +3,7 @@ protocol IVisitor {
     func visit(_ schema: SchemaFacet) -> String
 }
 
-struct visitor: IVisitor {
+struct Visitor: IVisitor {
     func visit(_ brand: BrandFacet) -> String {
         return "BRAND: \(brand.name)"
     }
