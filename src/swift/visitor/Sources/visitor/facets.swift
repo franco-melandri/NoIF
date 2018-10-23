@@ -4,7 +4,7 @@ enum Facets {
 }
 
 protocol IElement {
-    func accept(_ visitor: IVisitor) -> String
+    func accept(_ visitor: IVisitor) -> [String]
 }
 
 protocol BaseFacet {
@@ -25,7 +25,7 @@ struct BrandFacet: BaseFacet,
         self.name = name
     }
 
-    func accept(_ visitor: IVisitor) -> String {
+    func accept(_ visitor: IVisitor) -> [String] {
         return visitor.visit(self)
     }
 }
@@ -46,7 +46,7 @@ struct SchemaFacet: BaseFacet,
         self.schemaIdentifier = schemaIdentifier
     }
 
-    func accept(_ visitor: IVisitor) -> String {
+    func accept(_ visitor: IVisitor) -> [String] {
         return visitor.visit(self)
     }
 }
