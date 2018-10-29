@@ -3,13 +3,15 @@ import XCTest
 
 final class NullObjectTests: XCTestCase {
 
-    func testSomething() {
-        // let sut = fizz()
-        // let result = sut.getResult(3)
-        // XCTAssertEqual(result, "fizz")
+    func testFacebookLoginSuccess() {
+        let sut = LoginFactory()
+        let loginService = sut.getService(ofType: LoginFactory.ServiceType.facebook)
+        let loginSuccess = loginService.login()
+        XCTAssertTrue(loginSuccess)
     }
 
     static var allTests = [
-        ("testSomething", testSomething),
+        ("testFacebookLoginSuccess", testFacebookLoginSuccess),
     ]
+    
 }
