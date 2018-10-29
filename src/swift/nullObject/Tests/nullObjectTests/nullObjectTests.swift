@@ -10,8 +10,16 @@ final class NullObjectTests: XCTestCase {
         XCTAssertTrue(loginSuccess)
     }
 
+    func testGoogleLoginSuccess() {
+        let sut = LoginFactory()
+        let loginService = sut.getService(ofType: LoginFactory.ServiceType.google)
+        let loginSuccess = loginService.login()
+        XCTAssertTrue(loginSuccess)
+    }
+
     static var allTests = [
         ("testFacebookLoginSuccess", testFacebookLoginSuccess),
+        ("testGoogleLoginSuccess", testGoogleLoginSuccess),
     ]
-    
+
 }

@@ -6,6 +6,7 @@ public struct LoginFactory {
 
     private let loginServices: [String: () -> LoginService] = [
         ServiceType.facebook.rawValue: { FacebookLogin() },
+        ServiceType.google.rawValue: { GoogleLogin() },
     ]
 
     func getService(ofType type: ServiceType) -> LoginService {
