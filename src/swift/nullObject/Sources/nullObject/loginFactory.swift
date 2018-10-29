@@ -9,8 +9,8 @@ public struct LoginFactory {
         ServiceType.google.rawValue: { GoogleLogin() },
     ]
 
-    func getService(ofType type: ServiceType) -> LoginService {
-        return loginServices[type.rawValue]?() ?? NullLogin()
+    func getService(ofType type: String) -> LoginService {
+        return loginServices[type]?() ?? NullLogin()
     }
 
 }
