@@ -10,7 +10,7 @@ public struct LoginFactory {
     ]
 
     func getService(ofType type: String) -> LoginService {
-        return loginServices[type]?() ?? NullLogin()
+        return loginServices[type, default: { NullLogin() }]()
     }
 
 }
